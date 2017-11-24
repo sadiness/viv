@@ -1,0 +1,71 @@
+*{
+	margin:0;
+	padding:0;
+}
+#box{
+	width:509px;
+	height:300px;
+	margin:100px auto;
+	position:relative;
+	border:3px solid red;
+}
+#box>.pic{
+	width:509px;
+	height:300px;
+	overflow:hidden;
+}
+li{
+	list-style:none;
+}
+#box>.pic>ul>li{
+	width:509px;
+	height:300px;
+	float:left;
+}
+#box>.pic>ul{
+	width:1000%;
+	margin-left:-509px;
+	overflow:hidden;
+}
+#box>.dian{
+	width:72px;
+	height:15px;
+	background:rgba(255,255,255,0.5);
+	position:absolute;
+	left:50%;
+	margin-left:-36px;
+	bottom:10px;
+}
+#box>.dian>ul>li{
+	width:12px;
+	height:12px;
+	border-radius:100%;
+	background-color:#999;
+	float:left;
+	margin-left:4px;
+	margin-top:2px;
+	cursor:pointer;
+}
+#box>.dian>ul>li.ai{
+	background-color:#f60;
+}
+#box>.button>div{
+	width:36px;
+	height:36px;
+	background:rgba(0,0,0,0.3);
+	position:absolute;
+	font-size:24px;
+	top:50%;
+	margin-top:-18px;
+	color:white;
+	line-height:30px;
+	font-weight:bold;
+	text-align:center;
+	cursor:pointer;
+}
+#box>.button>div.leftbutton{
+	left:0;
+}
+#box>.button>div.rightbutton{
+	right:0;
+}
