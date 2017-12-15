@@ -1,0 +1,58 @@
+<html>
+	<head>
+	<title></title>
+	<meta charset="utf-8">
+	</head>
+	<body>
+	<div id="box"></div>
+	</body>
+	<script type="text/javascript">
+	var Odiv=document.createElement("div")
+	var Obody=document.getElementById("box")
+	Obody.appendChild(Odiv)
+	var div=document.getElementsByTagName("div")[1]
+	div.setAttribute("id",'box1')
+	div.style="width:100;height:100;background-color:red;"
+	a=1
+	var func=function(){
+		if(a){
+			div.style.backgroundColor="blue"
+			setTimeout(function(){
+				div.style.marginLeft=div.offsetLeft+500+"px";
+			},0)
+			a=0;
+		}
+		else{
+			div.style.backgroundColor="red"
+			setTimeout(function(){
+				div.style.marginLeft=div.offsetLeft+(-500)+"px";
+			},0)
+			a=1;
+		}
+	}
+	div.addEventListener("click",func,false)
+	var Div=document.getElementById('box1')
+	var url='http://123.207.89.151/jrtt/forecast';
+	var xmlHttp=new XMLHttpRequest();
+	xmlHttp.open('GET',url,true);
+	xmlHttp.send(null);
+	xmlHttp.onreadystatechange=function(){
+		if(xmlHttp.readyState==4&&xmlHttp.status==200){
+			console.log(JSON.parse(xmlHttp.response))
+			var data=JSON.parse(xmlHttp.response).明天.天气;
+			var data1=JSON.parse(xmlHttp.response).明天.最低温;
+			var data2=JSON.parse(xmlHttp.response).明天.最高温;
+			var data3=JSON.parse(xmlHttp.response).明天.空气质量
+			var data4=JSON.parse(xmlHttp.response).明天.风速;
+			var data5=JSON.parse(xmlHttp.response).明天;
+			console.log(data)
+			Div.innerHTML=data+'\n'+data1+'\n'+data2+'\n'+data3+'\n'+data4
+	}
+}
+	</script>
+	<style>
+	*{
+		margin:0;
+	}
+	</style>
+</html>
